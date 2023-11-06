@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">
+  
+</head>
+
+<body>
+ <div class="login">
+	<h3>Cardiovascular Risk Prediction</h3>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}" method="post">
+    	<input type="text" name="age" placeholder="Age" required="required" />
+        <input type="text" name="education" placeholder="Education" required="required" />
+		<input type="text" name="cigsPerDay" placeholder="CigsPerDay" required="required" />
+		<input type="text" name="BPMeds" placeholder="BPMeds" required="required" />
+        <input type="text" name="prevalentStroke" placeholder="PrevalentStroke" required="required" />
+		<input type="text" name="prevalentHyp" placeholder="PrevalentHyp" required="required" />
+		<input type="text" name="diabetes" placeholder="Diabetes" required="required" />
+		<input type="text" name="totChol" placeholder="Total Cholesterol" required="required" />
+		<input type="text" name="sysBP" placeholder="Systolic BP" required="required" />
+		<input type="text" name="diaBP" placeholder="Diastolic BP" required="required" />
+		<input type="text" name="BMI" placeholder="BMI" required="required" />
+		<input type="text" name="heartRate" placeholder="Heart Rate" required="required" />
+		<input type="text" name="glucose" placeholder="Glucose" required="required" />
+		<input type="text" name="sex" placeholder="Gender" required="required" />
+		<input type="text" name="is_smoking" placeholder="Is Smoking" required="required" />
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
